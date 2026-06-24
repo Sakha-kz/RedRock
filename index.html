@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Rock</title>
+    <title>Red Rock | Ваш партнер в геологических решениях</title>
     <meta name="description" content="Инновационные технологии для обнаружения полезных ископаемых. Геофизические, геохимические и геоинформационные услуги.">
+    
+    <!-- Иконка во вкладке браузера (Favicon) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23B91C1C'/%3E%3Cpath d='M16 6L6 22h20z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M12 15.5l2 2 3.5-3.5L21 17' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+
     <!-- Подключение шрифтов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +20,6 @@
     <!-- Подключение иконок Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Настройка Tailwind -->
     <script>
         tailwind.config = {
             theme: {
@@ -26,13 +28,15 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        darkbg: '#0B0F19', 
+                        lightbg: '#F9FAFB', // Премиальный фарфоровый белый
+                        panelbg: 'rgba(255, 255, 255, 0.75)', // Белое матовое стекло
                         terracotta: {
-                            DEFAULT: '#B91C1C', 
+                            DEFAULT: '#B91C1C', // Глубокий терракотовый
                             dark: '#991B1B',
                             light: '#DC2626',
-                            glow: 'rgba(185, 28, 28, 0.4)'
-                        }
+                            glow: 'rgba(185, 28, 28, 0.15)'
+                        },
+                        coal: '#0F172A', // Изысканный угольный цвет для текста
                     },
                     animation: {
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -42,9 +46,7 @@
         }
     </script>
 
-    <!-- Стили -->
     <link rel="stylesheet" href="css/style.css" />
-    </style>
 </head>
 <body class="font-sans antialiased selection:bg-terracotta selection:text-white">
 
@@ -53,31 +55,31 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Логотип -->
-                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                    <div class="w-8 h-8 rounded bg-terracotta flex items-center justify-center">
+                <div class="flex-shrink-0 flex items-center gap-2.5 cursor-pointer">
+                    <div class="w-9 h-9 rounded-lg bg-terracotta flex items-center justify-center shadow-sm">
                         <i data-lucide="mountain-snow" class="text-white w-5 h-5"></i>
                     </div>
-                    <span class="font-bold text-xl tracking-wider text-white uppercase">Red<span class="text-terracotta">Rock</span></span>
+                    <span class="font-bold text-xl tracking-wider text-coal uppercase">Red<span class="text-terracotta">Rock</span></span>
                 </div>
 
                 <!-- Десктопное меню -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide">О компании</a>
-                    <a href="#advantages" class="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide">Преимущества</a>
-                    <a href="#services" class="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide">Услуги</a>
-                    <a href="#technology" class="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide">Технологии</a>
+                    <a href="#about" class="text-slate-600 hover:text-coal transition-colors text-sm font-medium tracking-wide">О компании</a>
+                    <a href="#advantages" class="text-slate-600 hover:text-coal transition-colors text-sm font-medium tracking-wide">Преимущества</a>
+                    <a href="#services" class="text-slate-600 hover:text-coal transition-colors text-sm font-medium tracking-wide">Услуги</a>
+                    <a href="#technology" class="text-slate-600 hover:text-coal transition-colors text-sm font-medium tracking-wide">Технологии</a>
                 </nav>
 
-                <!-- Кнопка связи -->
+                <!-- Кнопка связи (десктоп) -->
                 <div class="hidden md:flex">
-                    <a href="#contact" class="text-sm font-medium border border-terracotta text-terracotta hover:bg-terracotta hover:text-white transition-all px-5 py-2 rounded-full">
+                    <a href="#contact" class="text-sm font-semibold border border-terracotta/20 text-terracotta hover:bg-terracotta hover:text-white transition-all duration-300 px-6 py-2.5 rounded-full shadow-sm hover:shadow-md">
                         Связаться
                     </a>
                 </div>
 
                 <!-- Мобильное меню гамбургер -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-coal focus:outline-none p-2">
                         <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -85,60 +87,61 @@
         </div>
 
         <!-- Мобильное выпадающее меню -->
-        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-white/5 absolute w-full">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">О компании</a>
-                <a href="#advantages" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Преимущества</a>
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Услуги</a>
-                <a href="#technology" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Технологии</a>
-                <a href="#contact" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-medium bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-white transition-colors">Связаться</a>
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-slate-100 absolute w-full left-0 shadow-lg">
+            <div class="px-4 pt-3 pb-4 space-y-1">
+                <a href="#about" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:text-coal hover:bg-slate-50">О компании</a>
+                <a href="#advantages" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:text-coal hover:bg-slate-50">Преимущества</a>
+                <a href="#services" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:text-coal hover:bg-slate-50">Услуги</a>
+                <a href="#technology" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:text-coal hover:bg-slate-50">Технологии</a>
+                <a href="#contact" class="block px-3 py-3 mt-4 text-center rounded-full text-base font-semibold bg-terracotta text-white hover:bg-terracotta-dark transition-colors shadow-md">Связаться</a>
             </div>
         </div>
     </header>
 
     <!-- Главная секция (Hero) -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Декоративные световые пятна -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] bg-terracotta/20 blur-[120px] rounded-full pointer-events-none opacity-50"></div>
+    <section class="relative pt-36 pb-20 lg:pt-52 lg:pb-36 overflow-hidden">
+        <!-- Декоративные премиальные световые пятна (теплый золотистый и мягкий терракотовый градиент) -->
+        <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-terracotta/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-10 right-1/4 w-[500px] h-[500px] bg-amber-500/5 blur-[150px] rounded-full pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-terracotta/30 bg-terracotta/10 text-terracotta text-xs font-semibold uppercase tracking-wider mb-8">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-terracotta/10 bg-terracotta/5 text-terracotta text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm">
                 <span class="w-2 h-2 rounded-full bg-terracotta animate-pulse"></span>
                 Инновационное сканирование недр земли
             </div>
             
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
+            <h1 class="text-4xl sm:text-6xl lg:text-7.5xl font-extrabold tracking-tight text-coal mb-6 leading-[1.1]">
                 ВАШ ПАРТНЕР В <br class="hidden md:block"/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">ГЕОЛОГИЧЕСКИХ РЕШЕНИЯХ</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-coal to-slate-500">ГЕОЛОГИЧЕСКИХ РЕШЕНИЯХ</span>
             </h1>
             
-            <p class="mt-4 max-w-2xl text-lg md:text-xl text-gray-400 mx-auto mb-10 leading-relaxed">
+            <p class="mt-4 max-w-2xl text-lg md:text-xl text-slate-600 mx-auto mb-12 leading-relaxed">
                 RedRock — сервисная компания, предоставляющая комплекс инновационных геофизических, геохимических и геоинформационных услуг для точного обнаружения полезных ископаемых.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="btn-primary text-white px-8 py-4 rounded-full font-medium flex items-center justify-center gap-2 shadow-lg shadow-terracotta/20">
+                <a href="#technology" class="btn-primary text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg shadow-terracotta/10">
                     Наши технологии
                     <span class="btn-arrow"><i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-                </button>
-                <button class="px-8 py-4 rounded-full font-medium text-white border border-white/20 glass-panel hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
+                </a>
+                <a href="#services" class="px-8 py-4 rounded-full font-semibold text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm">
                     Услуги компании
-                </button>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Интерактивный сканер недр -->
-    <section id="technology" class="py-12 relative w-full">
+    <!-- Интерактивный сканер недр (Canvas Simulator) -->
+    <section id="technology" class="py-16 relative w-full bg-slate-50/50 border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Интерактивный симулятор глубины</h2>
-            <p class="text-gray-400 text-sm md:text-base">Проведите курсором или пальцем по области сканирования, чтобы запустить зондирующие импульсы.</p>
+            <h2 class="text-3xl font-bold text-coal mb-2">Интерактивный симулятор глубины</h2>
+            <p class="text-slate-500 text-sm md:text-base">Проведите курсором или пальцем по области сканирования, чтобы запустить зондирующие импульсы.</p>
         </div>
         
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden glass-panel relative group">
+            <div class="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden border border-slate-200/80 bg-white shadow-xl relative group">
                 <!-- Всплывающая подсказка -->
-                <div class="absolute top-4 right-4 bg-darkbg/80 border border-white/10 px-3 py-1.5 rounded text-xs text-gray-400 flex items-center gap-2 pointer-events-none transition-opacity group-hover:opacity-0">
+                <div class="absolute top-4 right-4 bg-white/90 border border-slate-100 px-3 py-1.5 rounded-lg text-xs text-slate-500 flex items-center gap-2 pointer-events-none transition-opacity group-hover:opacity-0 shadow-sm">
                     <i data-lucide="mouse-pointer-click" class="w-4 h-4 text-terracotta"></i> Взаимодействуйте
                 </div>
                 <!-- Сам Canvas элемент -->
@@ -148,43 +151,45 @@
     </section>
 
     <!-- О Компании & Партнерство -->
-    <section id="about" class="py-20 relative">
+    <section id="about" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                        <i data-lucide="globe-2" class="text-terracotta w-8 h-8"></i> О компании
+                    <h2 class="text-3xl md:text-4xl font-bold text-coal mb-6 flex items-center gap-3">
+                        <i data-lucide="globe" class="text-terracotta w-8 h-8"></i> О компании
                     </h2>
-                    <p class="text-gray-400 leading-relaxed mb-6">
+                    <p class="text-slate-600 leading-relaxed mb-8 text-base">
                         Наша миссия — предоставить самые современные и инновационные технологии для выявления и оценки запасов полезных ископаемых. Мы объединяем передовую науку и практический опыт для достижения максимальных результатов.
                     </p>
-                    <div class="glass-panel p-6 rounded-xl border-l-4 border-l-terracotta">
-                        <h3 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                    <div class="bg-white p-7 rounded-2xl border-l-4 border-l-terracotta shadow-sm border border-slate-100">
+                        <h3 class="text-lg font-bold text-coal mb-2 flex items-center gap-2">
                             <i data-lucide="handshake" class="text-terracotta w-5 h-5"></i> Стратегическое партнерство
                         </h3>
-                        <p class="text-gray-400 text-sm">
-                            Мы гордимся нашим стратегическим партнерством с компанией <span class="text-white font-medium">NRG</span>. Это сотрудничество позволяет нам проводить передовые аэрогеофизические исследования на уровне мировых стандартов.
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Мы гордимся нашим стратегическим партнерством с компанией <span class="text-coal font-semibold">NRG</span>. Это сотрудничество позволяет нам проводить передовые аэрогеофизические исследования на уровне мировых стандартов.
                         </p>
                     </div>
                 </div>
                 
-                <!-- Декоративный элемент -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="glass-panel p-6 rounded-2xl flex flex-col justify-center items-center text-center">
-                        <div class="text-4xl font-bold text-terracotta mb-2">15+</div>
-                        <div class="text-sm text-gray-400">Лет экспертного опыта</div>
+                <!-- Декоративный элемент / Статистика -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white p-8 rounded-3xl flex flex-col justify-center items-center text-center border border-slate-100 shadow-sm">
+                        <div class="text-4xl font-extrabold text-terracotta mb-2">15+</div>
+                        <div class="text-sm font-semibold text-slate-500">Лет экспертного опыта</div>
                     </div>
-                    <div class="glass-panel p-6 rounded-2xl flex flex-col justify-center items-center text-center">
-                        <div class="text-4xl font-bold text-white mb-2">3D</div>
-                        <div class="text-sm text-gray-400">Точное моделирование</div>
+                    <div class="bg-white p-8 rounded-3xl flex flex-col justify-center items-center text-center border border-slate-100 shadow-sm">
+                        <div class="text-4xl font-extrabold text-coal mb-2">3D</div>
+                        <div class="text-sm font-semibold text-slate-500">Точное моделирование</div>
                     </div>
-                    <div class="glass-panel p-6 rounded-2xl flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-terracotta/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-                        <div class="relative z-10 flex items-center gap-4">
-                            <i data-lucide="satellite" class="w-10 h-10 text-terracotta"></i>
-                            <div class="text-left">
-                                <div class="font-bold text-white text-lg">Высокая точность</div>
-                                <div class="text-sm text-gray-400">Инновационные системы Xcite и Xplorer</div>
+                    <div class="bg-white p-8 rounded-3xl flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden group border border-slate-100 shadow-sm">
+                        <div class="absolute inset-0 bg-slate-50 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                        <div class="relative z-10 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                            <div class="w-12 h-12 rounded-xl bg-terracotta/5 flex items-center justify-center text-terracotta">
+                                <i data-lucide="satellite" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-coal text-lg">Высокая точность сканирования</div>
+                                <div class="text-sm text-slate-500">Инновационные системы Xcite и Xplorer</div>
                             </div>
                         </div>
                     </div>
@@ -193,110 +198,110 @@
         </div>
     </section>
 
-    <!-- Преимущества -->
-    <section id="advantages" class="py-20 bg-black/30 relative">
+    <!-- Преимущества (Bento Grid) -->
+    <section id="advantages" class="py-24 bg-slate-50 relative border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Наши преимущества</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Почему ведущие добывающие компании выбирают решения от Red Rock.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-coal mb-4">Наши преимущества</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Почему ведущие добывающие компании выбирают решения от Red Rock.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
-                <!-- Карточка 1 -->
-                <div class="bento-card glass-panel rounded-3xl p-8 md:col-span-2 flex flex-col justify-between group">
-                    <div class="w-12 h-12 rounded-xl bg-terracotta/20 flex items-center justify-center mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[250px]">
+                <!-- Карточка 1 (Широкая) -->
+                <div class="bento-card rounded-3xl p-8 md:col-span-2 flex flex-col justify-between group">
+                    <div class="w-12 h-12 rounded-2xl bg-terracotta/5 flex items-center justify-center mb-4">
                         <i data-lucide="cpu" class="text-terracotta w-6 h-6 group-hover:animate-pulse"></i>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Инновационные технологии</h3>
-                        <p class="text-gray-400">Постоянное внедрение передовых методов сканирования и анализа, включая флагманские технологии Xcite и Xplorer для максимальной детализации.</p>
+                        <h3 class="text-2xl font-bold text-coal mb-2">Инновационные технологии</h3>
+                        <p class="text-slate-500 text-sm sm:text-base">Постоянное внедрение передовых методов сканирования и анализа, включая флагманские технологии Xcite и Xplorer для максимальной детализации структуры земной коры.</p>
                     </div>
                 </div>
 
-                <!-- Карточка 2 -->
-                <div class="bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
-                        <i data-lucide="brain-circuit" class="text-blue-400 w-6 h-6"></i>
+                <!-- Карточка 2 (Квадрат) -->
+                <div class="bento-card rounded-3xl p-8 flex flex-col justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/5 flex items-center justify-center mb-4">
+                        <i data-lucide="brain-circuit" class="text-blue-500 w-6 h-6"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Экспертное знание</h3>
-                        <p class="text-gray-400 text-sm">Команда высококвалифицированных специалистов в геологии и геофизике.</p>
+                        <h3 class="text-xl font-bold text-coal mb-2">Экспертное знание</h3>
+                        <p class="text-slate-500 text-sm">Команда высококвалифицированных специалистов в геологии, геофизике и геоинформатике.</p>
                     </div>
                 </div>
 
-                <!-- Карточка 3 -->
-                <div class="bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-4">
-                        <i data-lucide="users" class="text-green-400 w-6 h-6"></i>
+                <!-- Карточка 3 (Квадрат) -->
+                <div class="bento-card rounded-3xl p-8 flex flex-col justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/5 flex items-center justify-center mb-4">
+                        <i data-lucide="users" class="text-emerald-500 w-6 h-6"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Ориентация на клиента</h3>
-                        <p class="text-gray-400 text-sm">Индивидуальные и гибкие решения, адаптированные под специфические задачи проектов.</p>
+                        <h3 class="text-xl font-bold text-coal mb-2">Ориентация на клиента</h3>
+                        <p class="text-slate-500 text-sm">Индивидуальные и гибкие решения, адаптированные под специфические задачи проектов.</p>
                     </div>
                 </div>
 
-                <!-- Карточка 4 -->
-                <div class="bento-card glass-panel rounded-3xl p-8 md:col-span-2 flex flex-col justify-between overflow-hidden relative">
-                    <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
-                        <i data-lucide="layers" class="w-64 h-64 -mb-10 -mr-10"></i>
+                <!-- Карточка 4 (Широкая) -->
+                <div class="bento-card rounded-3xl p-8 md:col-span-2 flex flex-col justify-between overflow-hidden relative">
+                    <div class="absolute right-0 bottom-0 opacity-[0.02] pointer-events-none">
+                        <i data-lucide="layers" class="w-64 h-64 -mb-10 -mr-10 text-coal"></i>
                     </div>
-                    <div class="w-12 h-12 rounded-xl bg-terracotta/20 flex items-center justify-center mb-4 relative z-10">
+                    <div class="w-12 h-12 rounded-2xl bg-terracotta/5 flex items-center justify-center mb-4 relative z-10">
                         <i data-lucide="bar-chart-3" class="text-terracotta w-6 h-6"></i>
                     </div>
                     <div class="relative z-10">
-                        <h3 class="text-2xl font-bold text-white mb-2">Комплексный подход</h3>
-                        <p class="text-gray-400">От полевых сборов данных до глубокой лабораторной аналитики и создания детализированных 3D-моделей месторождений.</p>
+                        <h3 class="text-2xl font-bold text-coal mb-2">Комплексный подход</h3>
+                        <p class="text-slate-500 text-sm sm:text-base">От полевых сборов данных до глубокой лабораторной аналитики и создания детализированных 3D-моделей месторождений.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Услуги -->
-    <section id="services" class="py-20 relative">
+    <!-- Услуги (Карточки с модальными окнами) -->
+    <section id="services" class="py-24 relative bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Наши Услуги</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Кликните по услуге, чтобы узнать подробные технические спецификации.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-coal mb-4">Наши Услуги</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Кликните по услуге, чтобы узнать подробные технические спецификации.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
-                <div class="service-card glass-panel p-6 rounded-2xl cursor-pointer" onclick="openModal('modal-aero')">
-                    <div class="mb-6"><i data-lucide="plane" class="w-10 h-10 text-terracotta"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Аэрогеофизика</h3>
-                    <p class="text-sm text-gray-400 mb-4 line-clamp-3">Высокая производительность и многофункциональность с использованием передовых систем.</p>
-                    <div class="text-terracotta text-sm font-medium flex items-center gap-1">
+                <div class="service-card p-7 rounded-2xl cursor-pointer" onclick="openModal('modal-aero')">
+                    <div class="mb-6 w-12 h-12 rounded-xl bg-terracotta/5 flex items-center justify-center text-terracotta"><i data-lucide="plane" class="w-6 h-6"></i></div>
+                    <h3 class="text-lg font-bold text-coal mb-2">Аэрогеофизика</h3>
+                    <p class="text-sm text-slate-500 mb-4 line-clamp-3">Высокая производительность и многофункциональность с использованием передовых систем.</p>
+                    <div class="text-terracotta text-sm font-semibold flex items-center gap-1">
                         Подробнее <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="service-card glass-panel p-6 rounded-2xl cursor-pointer" onclick="openModal('modal-ground')">
-                    <div class="mb-6"><i data-lucide="radar" class="w-10 h-10 text-terracotta"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Наземные исследования</h3>
-                    <p class="text-sm text-gray-400 mb-4 line-clamp-3">Магниторазведка и электроразведка для детального изучения структуры земной коры.</p>
-                    <div class="text-terracotta text-sm font-medium flex items-center gap-1">
+                <div class="service-card p-7 rounded-2xl cursor-pointer" onclick="openModal('modal-ground')">
+                    <div class="mb-6 w-12 h-12 rounded-xl bg-terracotta/5 flex items-center justify-center text-terracotta"><i data-lucide="radar" class="w-6 h-6"></i></div>
+                    <h3 class="text-lg font-bold text-coal mb-2">Наземные исследования</h3>
+                    <p class="text-sm text-slate-500 mb-4 line-clamp-3">Магниторазведка и электроразведка для детального изучения структуры земной коры.</p>
+                    <div class="text-terracotta text-sm font-semibold flex items-center gap-1">
                         Подробнее <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="service-card glass-panel p-6 rounded-2xl cursor-pointer" onclick="openModal('modal-chem')">
-                    <div class="mb-6"><i data-lucide="flask-conical" class="w-10 h-10 text-terracotta"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Геохимические работы</h3>
-                    <p class="text-sm text-gray-400 mb-4 line-clamp-3">Прогнозно-поисковые работы для выявления перспективных рудных полей и зон.</p>
-                    <div class="text-terracotta text-sm font-medium flex items-center gap-1">
+                <div class="service-card p-7 rounded-2xl cursor-pointer" onclick="openModal('modal-chem')">
+                    <div class="mb-6 w-12 h-12 rounded-xl bg-terracotta/5 flex items-center justify-center text-terracotta"><i data-lucide="flask-conical" class="w-6 h-6"></i></div>
+                    <h3 class="text-lg font-bold text-coal mb-2">Геохимические работы</h3>
+                    <p class="text-sm text-slate-500 mb-4 line-clamp-3">Прогнозно-поисковые работы для выявления перспективных рудных полей и зон.</p>
+                    <div class="text-terracotta text-sm font-semibold flex items-center gap-1">
                         Подробнее <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="service-card glass-panel p-6 rounded-2xl cursor-pointer" onclick="openModal('modal-data')">
-                    <div class="mb-6"><i data-lucide="database" class="w-10 h-10 text-terracotta"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-2">Обработка данных</h3>
-                    <p class="text-sm text-gray-400 mb-4 line-clamp-3">Оцифровка, создание сложных 3D моделей и геологическая интерпретация массивов.</p>
-                    <div class="text-terracotta text-sm font-medium flex items-center gap-1">
+                <div class="service-card p-7 rounded-2xl cursor-pointer" onclick="openModal('modal-data')">
+                    <div class="mb-6 w-12 h-12 rounded-xl bg-terracotta/5 flex items-center justify-center text-terracotta"><i data-lucide="database" class="w-6 h-6"></i></div>
+                    <h3 class="text-lg font-bold text-coal mb-2">Обработка данных</h3>
+                    <p class="text-sm text-slate-500 mb-4 line-clamp-3">Оцифровка, создание сложных 3D моделей и геологическая интерпретация массивов.</p>
+                    <div class="text-terracotta text-sm font-semibold flex items-center gap-1">
                         Подробнее <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
@@ -305,90 +310,101 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-white/10 bg-darkbg py-12">
+    <footer class="border-t border-slate-200 bg-slate-50 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded bg-terracotta flex items-center justify-center">
-                    <i data-lucide="mountain-snow" class="text-white w-3 h-3"></i>
+                <div class="w-7 h-7 rounded bg-terracotta flex items-center justify-center shadow-sm">
+                    <i data-lucide="mountain-snow" class="text-white w-4 h-4"></i>
                 </div>
-                <span class="font-bold text-lg tracking-wider text-white uppercase">Red<span class="text-terracotta">Rock</span></span>
+                <span class="font-bold text-lg tracking-wider text-coal uppercase">Red<span class="text-terracotta">Rock</span></span>
             </div>
-            <p class="text-gray-500 text-sm">© 2026 RedRock Geophysics. Все права защищены.</p>
+            <p class="text-slate-500 text-sm">© 2026 RedRock Geophysics. Все права защищены.</p>
             <div class="flex gap-4">
-                <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-coal transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-coal transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
             </div>
         </div>
     </footer>
 
+
+    <!-- ================= МОДАЛЬНЫЕ ОКНА (Progressive Disclosure) ================= -->
     
     <!-- Шаблон модального окна 1 -->
     <div id="modal-aero" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center p-4">
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-aero')"></div>
+        <div class="absolute inset-0 bg-coal/40 backdrop-blur-md transition-opacity" onclick="closeModal('modal-aero')"></div>
         <!-- Content -->
-        <div class="relative glass-panel bg-[#111827] w-full max-w-2xl rounded-2xl border border-white/10 p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content-aero">
-            <button onclick="closeModal('modal-aero')" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/5 rounded-full p-2 transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
+        <div class="relative bg-white w-full max-w-2xl rounded-3xl border border-slate-100 p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content-aero">
+            <button onclick="closeModal('modal-aero')" class="absolute top-4 right-4 text-slate-400 hover:text-coal bg-slate-100 rounded-full p-2.5 transition-colors">
+                <i data-lucide="x" class="w-4 h-4"></i>
             </button>
-            <div class="w-12 h-12 rounded-xl bg-terracotta/20 flex items-center justify-center mb-6">
-                <i data-lucide="plane" class="text-terracotta w-6 h-6"></i>
+            <div class="w-12 h-12 rounded-xl bg-terracotta/5 flex items-center justify-center text-terracotta mb-6">
+                <i data-lucide="plane" class="w-6 h-6"></i>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-4">Аэрогеофизические работы</h3>
-            <p class="text-gray-300 mb-6 leading-relaxed">
+            <h3 class="text-2xl font-bold text-coal mb-4">Аэрогеофизические работы</h3>
+            <p class="text-slate-600 mb-6 leading-relaxed">
                 Комплексные исследования с воздуха обеспечивают беспрецедентную скорость и охват территорий. Мы используем технологии:
             </p>
-            <ul class="space-y-3 text-gray-400">
-                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5"></i> <span><strong class="text-white">Технология Xcite:</strong> Электромагнитная система высокого разрешения для выявления проводящих рудных тел на глубине.</span></li>
-                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5"></i> <span><strong class="text-white">Технология Xplorer:</strong> Гравиметрическая система для детального картирования плотностных неоднородностей коры.</span></li>
-                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5"></i> <span>Многофункциональность и адаптивность под сложный рельеф.</span></li>
+            <ul class="space-y-4 text-slate-600">
+                <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5"></i> <span><strong class="text-coal font-semibold">Технология Xcite:</strong> Электромагнитная система высокого разрешения для выявления проводящих рудных тел на глубине.</span></li>
+                <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5"></i> <span><strong class="text-coal font-semibold">Технология Xplorer:</strong> Гравиметрическая система для детального картирования плотностных неоднородностей коры.</span></li>
+                <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5"></i> <span>Многофункциональность и адаптивность под сложный рельеф горной местности.</span></li>
             </ul>
         </div>
     </div>
 
     <!-- Шаблон модального окна 2 -->
     <div id="modal-ground" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-ground')"></div>
-        <div class="relative glass-panel bg-[#111827] w-full max-w-2xl rounded-2xl border border-white/10 p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content-ground">
-            <button onclick="closeModal('modal-ground')" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/5 rounded-full p-2 transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
+        <div class="absolute inset-0 bg-coal/40 backdrop-blur-md transition-opacity" onclick="closeModal('modal-ground')"></div>
+        <div class="relative bg-white w-full max-w-2xl rounded-3xl border border-slate-100 p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content-ground">
+            <button onclick="closeModal('modal-ground')" class="absolute top-4 right-4 text-slate-400 hover:text-coal bg-slate-100 rounded-full p-2.5 transition-colors">
+                <i data-lucide="x" class="w-4 h-4"></i>
             </button>
-            <h3 class="text-2xl font-bold text-white mb-4">Наземные геофизические исследования</h3>
-            <p class="text-gray-300 mb-6">Точечное и детальное изучение выбранных участков. Включает высокоточную магниторазведку и методы электроразведки (ВП, МТЗ) для создания разрезов земной коры высокого разрешения.</p>
+            <div class="w-12 h-12 rounded-xl bg-terracotta/5 flex items-center justify-center text-terracotta mb-6">
+                <i data-lucide="radar" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-coal mb-4">Наземные геофизические исследования</h3>
+            <p class="text-slate-600 mb-6 leading-relaxed">Точечное и детальное изучение выбранных участков. Включает высокоточную магниторазведку и методы электроразведки (ВП, МТЗ) для создания разрезов земной коры высокого разрешения.</p>
         </div>
     </div>
     
     <!-- Шаблон модального окна 3 -->
     <div id="modal-chem" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-chem')"></div>
-        <div class="relative glass-panel bg-[#111827] w-full max-w-2xl rounded-2xl border border-white/10 p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content-chem">
-            <button onclick="closeModal('modal-chem')" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/5 rounded-full p-2 transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
+        <div class="absolute inset-0 bg-coal/40 backdrop-blur-md transition-opacity" onclick="closeModal('modal-chem')"></div>
+        <div class="relative bg-white w-full max-w-2xl rounded-3xl border border-slate-100 p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content-chem">
+            <button onclick="closeModal('modal-chem')" class="absolute top-4 right-4 text-slate-400 hover:text-coal bg-slate-100 rounded-full p-2.5 transition-colors">
+                <i data-lucide="x" class="w-4 h-4"></i>
             </button>
-            <h3 class="text-2xl font-bold text-white mb-4">Геохимические исследования</h3>
-            <p class="text-gray-300 mb-6">Анализ проб грунта, воды и горных пород для выявления аномалий и ореолов рассеяния. Позволяет с высокой долей вероятности прогнозировать наличие скрытых рудных тел.</p>
+            <div class="w-12 h-12 rounded-xl bg-terracotta/5 flex items-center justify-center text-terracotta mb-6">
+                <i data-lucide="flask-conical" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-coal mb-4">Геохимические исследования</h3>
+            <p class="text-slate-600 mb-6 leading-relaxed">Анализ проб грунта, воды и горных пород для выявления аномалий и ореолов рассеяния. Позволяет с высокой долей вероятности прогнозировать наличие скрытых рудных тел.</p>
         </div>
     </div>
 
     <!-- Шаблон модального окна 4 -->
     <div id="modal-data" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-data')"></div>
-        <div class="relative glass-panel bg-[#111827] w-full max-w-2xl rounded-2xl border border-white/10 p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content-data">
-            <button onclick="closeModal('modal-data')" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/5 rounded-full p-2 transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
+        <div class="absolute inset-0 bg-coal/40 backdrop-blur-md transition-opacity" onclick="closeModal('modal-data')"></div>
+        <div class="relative bg-white w-full max-w-2xl rounded-3xl border border-slate-100 p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content-data">
+            <button onclick="closeModal('modal-data')" class="absolute top-4 right-4 text-slate-400 hover:text-coal bg-slate-100 rounded-full p-2.5 transition-colors">
+                <i data-lucide="x" class="w-4 h-4"></i>
             </button>
-            <h3 class="text-2xl font-bold text-white mb-4">Комплексная обработка данных</h3>
-            <p class="text-gray-300 mb-6">Интеграция всех полученных данных (аэро, наземные, геохимия) в единую геологическую базу. Оцифровка старых фондовых материалов. Создание интерактивных 3D-моделей месторождений для точного планирования бурения.</p>
+            <div class="w-12 h-12 rounded-xl bg-terracotta/5 flex items-center justify-center text-terracotta mb-6">
+                <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-coal mb-4">Комплексная обработка данных</h3>
+            <p class="text-slate-600 mb-6 leading-relaxed">Интеграция всех полученных данных (аэро, наземные, геохимия) в единую геологическую базу. Оцифровка старых фондовых материалов. Создание интерактивных 3D-моделей месторождений для точного планирования бурения.</p>
         </div>
     </div>
 
 
-
+    <!-- ================= JAVASCRIPT ЛОГИКА (app.js & canvas-scanner.js) ================= -->
     <script>
         // Инициализация иконок Lucide
         lucide.createIcons();
 
-        // === УПРАВЛЕНИЕ UI  ===
+        // === УПРАВЛЕНИЕ UI (app.js) ===
         document.addEventListener('DOMContentLoaded', () => {
             
             // 1. Мобильное меню
@@ -401,7 +417,6 @@
                 isMenuOpen = !isMenuOpen;
                 if (isMenuOpen) {
                     mobileMenu.classList.remove('hidden');
-                    // Меняем иконку на крестик вручную т.к. lucide заменяет элемент
                     menuIcon.innerHTML = `<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>`;
                 } else {
                     mobileMenu.classList.add('hidden');
@@ -422,9 +437,9 @@
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
-                    navbar.classList.add('bg-[#0B0F19]/90', 'shadow-lg');
+                    navbar.classList.add('bg-white/90', 'shadow-md', 'border-b', 'border-slate-100');
                 } else {
-                    navbar.classList.remove('bg-[#0B0F19]/90', 'shadow-lg');
+                    navbar.classList.remove('bg-white/90', 'shadow-md', 'border-b', 'border-slate-100');
                 }
             });
         });
@@ -438,7 +453,6 @@
             modal.classList.add('flex');
             document.body.classList.add('no-scroll');
             
-            // Задержка для анимации появления
             setTimeout(() => {
                 content.classList.remove('scale-95', 'opacity-0');
                 content.classList.add('scale-100', 'opacity-100');
@@ -456,10 +470,10 @@
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
                 document.body.classList.remove('no-scroll');
-            }, 300); // Соответствует transition-duration
+            }, 300);
         }
 
-        // === ИНТЕРАКТИВНЫЙ СКАНЕР ===
+        // === ИНТЕРАКТИВНЫЙ СКАНЕР В СВЕТЛЫХ ТОНАХ (canvas-scanner.js) ===
         const canvas = document.getElementById('scanner-canvas');
         const ctx = canvas.getContext('2d');
         
@@ -476,12 +490,11 @@
         // Частицы сканирования (импульсы)
         let pulses = [];
         
-        // Рудные тела (спрятанные в земле)
+        // Рудные тела (скрытые под землей ценные минералы)
         let oreBodies = [];
 
         // Инициализация размеров и объектов
         function initCanvas() {
-            // Устанавливаем физический размер canvas равным CSS размеру
             const rect = canvas.parentElement.getBoundingClientRect();
             width = rect.width;
             height = rect.height;
@@ -491,21 +504,21 @@
             helicopter.x = width / 2;
             helicopter.targetX = width / 2;
 
-            // Генерируем случайные рудные тела
+            // Генерируем случайные рудные тела (золото/медь)
             oreBodies = [];
-            const numBodies = Math.floor(width / 150) + 2; // Зависит от ширины
+            const numBodies = Math.floor(width / 150) + 2;
             for(let i=0; i<numBodies; i++) {
                 oreBodies.push({
                     x: Math.random() * (width - 100) + 50,
-                    y: Math.random() * (height - 200) + 150, // В нижней части
-                    radius: Math.random() * 40 + 30,
-                    alpha: 0, // Изначально невидимы
+                    y: Math.random() * (height - 220) + 170, // В нижней половине
+                    radius: Math.random() * 45 + 35,
+                    alpha: 0,
                     targetAlpha: 0
                 });
             }
         }
 
-        // Обработка мыши 
+        // Обработка перемещения указателя/пальца
         function updateTargetPos(clientX) {
             const rect = canvas.getBoundingClientRect();
             helicopter.targetX = clientX - rect.left;
@@ -516,64 +529,68 @@
         });
 
         canvas.addEventListener('touchmove', (e) => {
-            // preventDefault убираем через CSS touch-action: none, 
-            // но можно и тут e.preventDefault(); если нужно строго.
             updateTargetPos(e.touches[0].clientX);
         }, {passive: false});
 
-        // Создание нового импульса
+        // Создание зондирующего импульса
         function emitPulse() {
             pulses.push({
                 x: helicopter.x,
                 y: helicopter.y + 20,
                 radius: 10,
                 maxRadius: height,
-                alpha: 0.8
+                alpha: 0.85
             });
         }
 
-        // Испускаем пульс каждые 400мс
+        // Пульсация каждые 400мс
         setInterval(emitPulse, 400);
 
-        // Главный цикл анимации
+        // Основной рендеринг
         function animate() {
             ctx.clearRect(0, 0, width, height);
 
-            // 1. Отрисовка слоев земли (Фон)
-            const gradient = ctx.createLinearGradient(0, 80, 0, height);
-            gradient.addColorStop(0, '#0f172a'); // Поверхность
-            gradient.addColorStop(0.5, '#090a0f'); // Глубина
-            gradient.addColorStop(1, '#000000'); // Ядро
+            // 1. Отрисовка слоев земли (Светлый благородный срез)
+            // Верхний "воздушный слой"
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, width, 80);
+
+            // Геологический срез (от песка до сланца и базальта)
+            const earthGradient = ctx.createLinearGradient(0, 80, 0, height);
+            earthGradient.addColorStop(0, '#F1F5F9'); // Суглинок / Известняк
+            earthGradient.addColorStop(0.3, '#E2E8F0'); // Плотный сланец
+            earthGradient.addColorStop(0.7, '#CBD5E1'); // Богатые металлом породы
+            earthGradient.addColorStop(1, '#94A3B8'); // Твердый базальт
             
-            ctx.fillStyle = gradient;
+            ctx.fillStyle = earthGradient;
             ctx.fillRect(0, 80, width, height - 80);
 
-            // Линия поверхности
+            // Граница раздела сред (земная поверхность)
             ctx.beginPath();
             ctx.moveTo(0, 80);
             ctx.lineTo(width, 80);
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#E2E8F0';
+            ctx.lineWidth = 3;
             ctx.stroke();
 
-            // 2. Обновление и отрисовка рудных тел
+            // 2. Отрисовка и свечение ценных рудных тел (терракота/медь/золото)
             for (let ore of oreBodies) {
-                // Плавное угасание свечения
                 ore.alpha += (ore.targetAlpha - ore.alpha) * 0.05;
-                ore.targetAlpha *= 0.98; // Постепенно тускнеет
+                ore.targetAlpha *= 0.98; // Постепенный распад свечения
 
                 if (ore.alpha > 0.01) {
                     ctx.save();
                     ctx.beginPath();
                     ctx.arc(ore.x, ore.y, ore.radius, 0, Math.PI * 2);
                     
-                    // Неоновое свечение Терракота
+                    // Неоновое дорогое золотисто-медное свечение
                     ctx.shadowColor = '#B91C1C';
-                    ctx.shadowBlur = 30;
+                    ctx.shadowBlur = 25;
                     
                     const oreGradient = ctx.createRadialGradient(ore.x, ore.y, 0, ore.x, ore.y, ore.radius);
-                    oreGradient.addColorStop(0, `rgba(220, 38, 38, ${ore.alpha})`);
-                    oreGradient.addColorStop(1, `rgba(153, 27, 27, ${ore.alpha * 0.2})`);
+                    oreGradient.addColorStop(0, `rgba(220, 38, 38, ${ore.alpha * 0.85})`);
+                    oreGradient.addColorStop(0.5, `rgba(234, 88, 12, ${ore.alpha * 0.4})`);
+                    oreGradient.addColorStop(1, `rgba(185, 28, 28, 0)`);
                     
                     ctx.fillStyle = oreGradient;
                     ctx.fill();
@@ -581,60 +598,63 @@
                 }
             }
 
-            // 3. Обновление и отрисовка импульсов
+            // 3. Расчет и рендеринг волн-импульсов
             for (let i = pulses.length - 1; i >= 0; i--) {
                 let p = pulses[i];
-                p.y += 3; // Скорость падения
-                p.radius += 1.5; // Скорость расширения дуги
-                p.alpha -= 0.003; // Угасание
+                p.y += 3.5; // Скорость спуска
+                p.radius += 2; // Раскрытие купола волны
+                p.alpha -= 0.005;
 
                 if (p.alpha <= 0 || p.y - p.radius > height) {
                     pulses.splice(i, 1);
                     continue;
                 }
 
-                // Отрисовка дуги импульса
+                // Рисуем сейсмическую дугу
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI, false); // Нижняя полусфера
-                ctx.strokeStyle = `rgba(185, 28, 28, ${p.alpha})`; // Терракотовый цвет
-                ctx.lineWidth = 2;
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI, false);
+                ctx.strokeStyle = `rgba(185, 28, 28, ${p.alpha * 0.7})`;
+                ctx.lineWidth = 2.5;
                 ctx.stroke();
 
-                // Проверка столкновений импульса с рудными телами
+                // Сканирование: если волна задевает руду, подсвечиваем ее
                 for (let ore of oreBodies) {
-                    // Простая проверка дистанции
                     const dist = Math.hypot(p.x - ore.x, (p.y + p.radius) - ore.y);
-                    if (dist < ore.radius + 10) {
-                        ore.targetAlpha = 1; // "Подсвечиваем" руду
+                    if (dist < ore.radius + 15) {
+                        ore.targetAlpha = 0.95; // Подсветка руды
                     }
                 }
             }
 
-            // 4. Обновление и отрисовка вертолета
-            // Плавное следование за курсором
+            // 4. Движение вертолета/дрона в светлом небе
             helicopter.x += (helicopter.targetX - helicopter.x) * helicopter.speed;
 
             ctx.save();
             ctx.translate(helicopter.x, helicopter.y);
             
-            // Рисуем простой силуэт дрона/вертолета
-            ctx.fillStyle = '#e2e8f0';
-            // Кабина
-            ctx.beginPath();
-            ctx.ellipse(0, 0, 15, 8, 0, 0, Math.PI * 2);
-            ctx.fill();
-            // Хвост
-            ctx.fillRect(-25, -2, 15, 4);
-            // Пропеллер
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-            const time = Date.now() / 50;
-            const rotorWidth = Math.sin(time) * 30; // Анимация вращения
-            ctx.fillRect(-rotorWidth/2, -8, rotorWidth, 2);
+            // Стильный темно-угольный силуэт дрона
+            ctx.fillStyle = '#0F172A';
             
-            // Сенсор внизу (откуда идет луч)
+            // Корпус
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 16, 9, 0, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Шасси и хвост
+            ctx.fillRect(-24, -2, 14, 3);
+            ctx.fillStyle = '#475569';
+            ctx.fillRect(-26, -5, 3, 6);
+            
+            // Вращающийся винт (пропеллер)
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.45)';
+            const time = Date.now() / 40;
+            const rotorWidth = Math.sin(time) * 32;
+            ctx.fillRect(-rotorWidth/2, -10, rotorWidth, 2);
+            
+            // Опорная лазерная пушка
             ctx.fillStyle = '#B91C1C';
             ctx.beginPath();
-            ctx.arc(0, 8, 3, 0, Math.PI * 2);
+            ctx.arc(0, 9, 3.5, 0, Math.PI * 2);
             ctx.fill();
 
             ctx.restore();
@@ -642,7 +662,7 @@
             requestAnimationFrame(animate);
         }
 
-        // Запуск
+        // Запуск симулятора
         window.addEventListener('resize', initCanvas);
         initCanvas();
         animate();

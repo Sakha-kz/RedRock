@@ -1,22 +1,26 @@
 /* Базовые стили */
         body {
-            background-color: #0B0F19;
-            color: #e2e8f0;
+            background-color: #F9FAFB;
+            color: #1E293B;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Эффект матового стекла */
+        /* Премиальный эффект матового стекла (Frosted Glass) */
         .glass-panel {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
         }
 
-        /* Микро-анимации и Glow-эффекты для Bento Grid и Карточек */
+        /* Микро-анимации и дорогие тени для Bento Grid и Карточек */
         .bento-card, .service-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(15, 23, 42, 0.05);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.03);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
         }
@@ -26,21 +30,20 @@
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            padding: 2px;
-            background: linear-gradient(to bottom right, rgba(185,28,28,0.5), transparent);
+            padding: 1.5px;
+            background: linear-gradient(to bottom right, rgba(185,28,28,0.3), transparent);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
         }
 
         .bento-card:hover, .service-card:hover {
-            transform: scale(1.02);
-            background: rgba(17, 24, 39, 0.8);
-            box-shadow: 0 10px 30px -10px rgba(185, 28, 28, 0.3);
-            border-color: rgba(185, 28, 28, 0.3);
+            transform: translateY(-4px);
+            background: #FFFFFF;
+            box-shadow: 0 20px 40px -15px rgba(185, 28, 28, 0.12), 0 0 0 1px rgba(185, 28, 28, 0.1);
+            border-color: rgba(185, 28, 28, 0.2);
             z-index: 10;
         }
 
@@ -48,10 +51,10 @@
             opacity: 1;
         }
 
-        /* Анимация кнопок */
+        /* Анимация кнопок с дорогим переливом */
         .btn-primary {
             background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
         }
@@ -61,8 +64,13 @@
             position: absolute;
             top: 0; left: -100%;
             width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.4s ease;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 25px -5px rgba(185, 28, 28, 0.4);
+            transform: translateY(-1px);
         }
 
         .btn-primary:hover::after {
@@ -78,15 +86,15 @@
             display: inline-block;
         }
 
-        /* Кастомный скроллбар */
+        /* Кастомный минималистичный скроллбар */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0B0F19;
+            background: #F9FAFB;
         }
         ::-webkit-scrollbar-thumb {
-            background: #334155;
+            background: #CBD5E1;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
@@ -98,7 +106,6 @@
             overflow: hidden;
         }
         
-        /* Специфично для Canvas (чтобы на мобилках не скроллился экран при взаимодействии) */
         #scanner-canvas {
             touch-action: none;
         }
