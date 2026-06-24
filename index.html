@@ -26,9 +26,9 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        darkbg: '#0B0F19', // Глубокий космический черный
+                        darkbg: '#0B0F19', 
                         terracotta: {
-                            DEFAULT: '#B91C1C', // Глубокий красный / Терракотовый
+                            DEFAULT: '#B91C1C', 
                             dark: '#991B1B',
                             light: '#DC2626',
                             glow: 'rgba(185, 28, 28, 0.4)'
@@ -42,7 +42,7 @@
         }
     </script>
 
-    <!-- Стили (styles.css) -->
+    <!-- Стили -->
     <link rel="stylesheet" href="css/style.css" />
     </style>
 </head>
@@ -68,7 +68,7 @@
                     <a href="#technology" class="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide">Технологии</a>
                 </nav>
 
-                <!-- Кнопка связи (десктоп) -->
+                <!-- Кнопка связи -->
                 <div class="hidden md:flex">
                     <a href="#contact" class="text-sm font-medium border border-terracotta text-terracotta hover:bg-terracotta hover:text-white transition-all px-5 py-2 rounded-full">
                         Связаться
@@ -128,7 +128,7 @@
         </div>
     </section>
 
-    <!-- Интерактивный сканер недр (Canvas Simulator) -->
+    <!-- Интерактивный сканер недр -->
     <section id="technology" class="py-12 relative w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
             <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Интерактивный симулятор глубины</h2>
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 
-                <!-- Декоративный элемент / Статистика -->
+                <!-- Декоративный элемент -->
                 <div class="grid grid-cols-2 gap-4">
                     <div class="glass-panel p-6 rounded-2xl flex flex-col justify-center items-center text-center">
                         <div class="text-4xl font-bold text-terracotta mb-2">15+</div>
@@ -193,7 +193,7 @@
         </div>
     </section>
 
-    <!-- Преимущества (Bento Grid) -->
+    <!-- Преимущества -->
     <section id="advantages" class="py-20 bg-black/30 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -202,7 +202,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
-                <!-- Карточка 1 (Широкая) -->
+                <!-- Карточка 1 -->
                 <div class="bento-card glass-panel rounded-3xl p-8 md:col-span-2 flex flex-col justify-between group">
                     <div class="w-12 h-12 rounded-xl bg-terracotta/20 flex items-center justify-center mb-4">
                         <i data-lucide="cpu" class="text-terracotta w-6 h-6 group-hover:animate-pulse"></i>
@@ -213,7 +213,7 @@
                     </div>
                 </div>
 
-                <!-- Карточка 2 (Квадрат) -->
+                <!-- Карточка 2 -->
                 <div class="bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
                         <i data-lucide="brain-circuit" class="text-blue-400 w-6 h-6"></i>
@@ -224,7 +224,7 @@
                     </div>
                 </div>
 
-                <!-- Карточка 3 (Квадрат) -->
+                <!-- Карточка 3 -->
                 <div class="bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between">
                     <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-4">
                         <i data-lucide="users" class="text-green-400 w-6 h-6"></i>
@@ -235,7 +235,7 @@
                     </div>
                 </div>
 
-                <!-- Карточка 4 (Широкая) -->
+                <!-- Карточка 4 -->
                 <div class="bento-card glass-panel rounded-3xl p-8 md:col-span-2 flex flex-col justify-between overflow-hidden relative">
                     <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
                         <i data-lucide="layers" class="w-64 h-64 -mb-10 -mr-10"></i>
@@ -252,7 +252,7 @@
         </div>
     </section>
 
-    <!-- Услуги (Карточки с модальными окнами) -->
+    <!-- Услуги -->
     <section id="services" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -321,8 +321,6 @@
         </div>
     </footer>
 
-
-    <!-- ================= МОДАЛЬНЫЕ ОКНА (Progressive Disclosure) ================= -->
     
     <!-- Шаблон модального окна 1 -->
     <div id="modal-aero" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center p-4">
@@ -385,12 +383,12 @@
     </div>
 
 
-    <!-- ================= JAVASCRIPT ЛОГИКА (app.js & canvas-scanner.js) ================= -->
+
     <script>
         // Инициализация иконок Lucide
         lucide.createIcons();
 
-        // === УПРАВЛЕНИЕ UI (app.js) ===
+        // === УПРАВЛЕНИЕ UI  ===
         document.addEventListener('DOMContentLoaded', () => {
             
             // 1. Мобильное меню
@@ -461,7 +459,7 @@
             }, 300); // Соответствует transition-duration
         }
 
-        // === ИНТЕРАКТИВНЫЙ СКАНЕР (canvas-scanner.js) ===
+        // === ИНТЕРАКТИВНЫЙ СКАНЕР ===
         const canvas = document.getElementById('scanner-canvas');
         const ctx = canvas.getContext('2d');
         
@@ -507,7 +505,7 @@
             }
         }
 
-        // Обработка мыши / тач
+        // Обработка мыши 
         function updateTargetPos(clientX) {
             const rect = canvas.getBoundingClientRect();
             helicopter.targetX = clientX - rect.left;
