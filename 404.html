@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Rock | Страница не найдена</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        darkbg: '#0B0F19',
+                        terracotta: '#B91C1C',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #e2e8f0;
+            overflow: hidden; /* Без скролла на странице 404 */
+        }
+
+        /* Эффект Глитча (Glitch) для цифр 404 */
+        .glitch-wrapper {
+            position: relative;
+            font-size: 150px;
+            font-weight: 800;
+            line-height: 1;
+            color: white;
+            z-index: 10;
+        }
+
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0B0F19;
+        }
+
+        .glitch::before {
+            left: 3px;
+            text-shadow: -2px 0 red;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -3px;
+            text-shadow: -2px 0 blue;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(11px, 9999px, 83px, 0); }
+            5% { clip: rect(44px, 9999px, 13px, 0); }
+            10% { clip: rect(89px, 9999px, 49px, 0); }
+            15% { clip: rect(2px, 9999px, 98px, 0); }
+            20% { clip: rect(67px, 9999px, 25px, 0); }
+            25% { clip: rect(55px, 9999px, 72px, 0); }
+            30% { clip: rect(38px, 9999px, 51px, 0); }
+            35% { clip: rect(93px, 9999px, 20px, 0); }
+            40% { clip: rect(12px, 9999px, 88px, 0); }
+            45% { clip: rect(74px, 9999px, 35px, 0); }
+            50% { clip: rect(49px, 9999px, 66px, 0); }
+            55% { clip: rect(28px, 9999px, 19px, 0); }
+            60% { clip: rect(81px, 9999px, 92px, 0); }
+            65% { clip: rect(6px, 9999px, 45px, 0); }
+            70% { clip: rect(52px, 9999px, 11px, 0); }
+            75% { clip: rect(31px, 9999px, 79px, 0); }
+            80% { clip: rect(96px, 9999px, 34px, 0); }
+            85% { clip: rect(18px, 9999px, 82px, 0); }
+            90% { clip: rect(77px, 9999px, 57px, 0); }
+            95% { clip: rect(41px, 9999px, 23px, 0); }
+            100% { clip: rect(85px, 9999px, 69px, 0); }
+        }
+
+        .btn-return {
+            background: rgba(185, 28, 28, 0.1);
+            border: 1px solid rgba(185, 28, 28, 0.5);
+            color: #ffbaba;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-return:hover {
+            background: #B91C1C;
+            color: white;
+            box-shadow: 0 0 20px rgba(185, 28, 28, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Декоративная сетка сканера на фоне */
+        .scan-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(185, 28, 28, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(185, 28, 28, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+        }
+        
+        /* Лазерная полоса сканирования */
+        .laser-scan {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(185, 28, 28, 0.8);
+            box-shadow: 0 0 15px 5px rgba(185, 28, 28, 0.4);
+            animation: scan 4s infinite linear;
+            z-index: 1;
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+    </style>
+</head>
+<body class="h-screen w-full flex items-center justify-center relative selection:bg-terracotta selection:text-white">
+
+    <!-- Декоративный фон -->
+    <div class="scan-grid"></div>
+    <div class="laser-scan"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-darkbg/50 to-darkbg z-0 pointer-events-none"></div>
+
+    <div class="relative z-10 text-center px-4">
+        <!-- Иконка радара/сканера -->
+        <div class="flex justify-center mb-6">
+            <div class="relative">
+                <i data-lucide="crosshair" class="w-16 h-16 text-terracotta/50 animate-spin-slow" style="animation-duration: 4s;"></i>
+                <div class="absolute inset-0 bg-terracotta/20 blur-xl rounded-full"></div>
+            </div>
+        </div>
+
+        <!-- Глитч 404 -->
+        <div class="glitch-wrapper mb-4">
+            <div class="glitch" data-text="404">404</div>
+        </div>
+
+        <!-- Текст -->
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Сигнал потерян</h2>
+        <p class="text-gray-400 text-lg mb-8 max-w-md mx-auto">
+            Данный пласт земли еще не исследован. Возможно, запрашиваемый слой был сдвинут тектоническими плитами.
+        </p>
+
+        <!-- Кнопка возврата -->
+        <a href="index.html" class="btn-return inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-medium tracking-wide">
+            <i data-lucide="navigation" class="w-4 h-4"></i>
+            Вернуться на базу
+        </a>
+    </div>
+
+    <script>
+        // Инициализация иконок
+        lucide.createIcons();
+    </script>
+</body>
+</html>
